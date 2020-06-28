@@ -4,13 +4,15 @@ const { join } = require('path')
 
 module.exports = async (req, res) => {
   const { coaching_enrollee_xlsx } = JSON.parse(req.body.data)
-  console.log('1) Zoho object parsed into JS object');
-
-  const coachName = coaching_enrollee_xlsx.shift()
+  console.log('1) Zoho object parsed into JS object')
 
   const coachingWb = new ExcelJS.Workbook()
   const coachingWs = await coachingWb.xlsx.readFile(join(__dirname, '_files', 'CoachingSpreadsheet.xlsx'))
   const enrolleesSheet = coachingWs.getWorksheet('Enrollees')
+
+  const coachName = coaching_enrollee_xlsx.shift()
+  enrolleesSheet.getCell('B1').value = coachName
+
   const START_OF_ENROLLEE_LIST = 3
   coaching_enrollee_xlsx.forEach((enrolleeDetails, index) => {
     enrolleesSheet.getCell(`A${index + START_OF_ENROLLEE_LIST}`).value = index + 1
@@ -28,7 +30,7 @@ module.exports = async (req, res) => {
 
   try {
     //* 3) Create buffer
-    const buffer = await facilitatorWb.xlsx.writeBuffer()
+    const buffer = await coachingWb.xlsx.writeBuffer()
     //* 4) Create reusable transporter object using the default SMTP transport
     const transporter = nodemailer.createTransport({
       host: 'smtp.zoho.com',
