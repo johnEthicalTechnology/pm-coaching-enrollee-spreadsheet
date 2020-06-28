@@ -1,0 +1,20 @@
+{
+  "name": "pm-coaching-enrollee-spreadsheet",
+  "version": "1.0.0",
+  "description": "A function for a client that converts data from their Zoho Course Enrolments module into a coaching spreadsheet. The spreadsheet is sent to the company's admin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-ethicalTech:johnEthicalTechnology/pm-coaching-enrollee-spreadsheet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "exceljs": "^4.0.1",
+    "nodemailer": "^6.4.8"
+  }
+}
