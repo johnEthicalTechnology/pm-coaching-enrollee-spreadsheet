@@ -25,6 +25,8 @@ module.exports = async (req, res) => {
     enrolleesSheet.getCell(`H${index + START_OF_ENROLLEE_LIST}`).value = enrolleeDetails.course
     enrolleesSheet.getCell(`I${index + START_OF_ENROLLEE_LIST}`).value = enrolleeDetails.version
     enrolleesSheet.getCell(`J${index + START_OF_ENROLLEE_LIST}`).value = enrolleeDetails.type
+    enrolleesSheet.getCell(`K${index + START_OF_ENROLLEE_LIST}`).value = enrolleeDetails.salesPerson
+    // N.B. there's a Notes column in the xlsx sheet but on the hardcopy that was for the coach to put in anything about the person they are coaching.
   });
   console.log('2) Created coaching spreadsheet');
 
