@@ -50,7 +50,7 @@ module.exports = async (req, res) => {
     const emailRes = await transporter.sendMail({
       from: `'Priority Management Sydney' <brett.handley@prioritymanagement.com.au>`,
       to: 'jennie.sadler@prioritymanagement.com.au',
-      cc: 'brett.handley@prioritymanagement.com.au',
+      cc: 'materials@prioritymanagement.com.au',
       subject: `Spreadsheet for coach - ${coachName}`,
       text: `Dear PM Admin,/r This is the spreadsheet for coach ${coachName}. It lists all the enrollees they've been assigned to coach from ${sevenDaysAgo.toDateString()} to ${today.toDateString()}/r Regards, PM Automation`,
       html: `<p>Dear PM Admin,</p><p>This is the spreadsheet for coach ${coachName}. It lists all the enrollees they've been assigned to coach from ${sevenDaysAgo.toDateString()} to ${today.toDateString()}</p><p>Regards, PM Automation</p>`,
