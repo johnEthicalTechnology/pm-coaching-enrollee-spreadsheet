@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "exceljs": "^4.0.1",
-    "nodemailer": "^6.4.8"
+    "exceljs": "^4.2.1",
+    "nodemailer": "^6.6.0"
   }
 }
